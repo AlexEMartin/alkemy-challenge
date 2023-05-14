@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
-import { Navigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
 import axios from "axios";
 import swal from "@sweetalert/with-react";
 
 function Listado(props) {
-  let token = sessionStorage.getItem("token");
 
   const [moviesList, setMoviesList] = useState([]);
 
   useEffect(() => {
     const endPoint =
-      "https://api.themoviedb.org/3/discover/movie?api_key=b1857ba56197ae84cff79e8d15addf8b&language=en-US&page=1";
+      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`;
     axios
       .get(endPoint)
       .then((response) => {
@@ -25,10 +24,9 @@ function Listado(props) {
 
   return (
     <>
-      {!token && <Navigate to="/" />}
       <div className="row">
         {moviesList.map((movie) => (
-          <div key={movie.id} className="col-3 my-4">
+          <div key={movie.id} className="col-md-3 d-flex justify-content-center align-items-center my-4">
             <Card style={{ width: "18rem" }}>
               <Card.Img
                 variant="top"

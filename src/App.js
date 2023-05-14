@@ -1,4 +1,3 @@
-import Login from "./components/Login";
 import Listado from "./components/Listado";
 import Detalle from "./components/Detalle";
 import Resultados from "./components/Resultados";
@@ -70,12 +69,11 @@ function App() {
 
 
   return (
-    <div className="container-fluid d-flex flex-column min-vh-100">
+    <div className="container-fluid d-flex flex-column min-vh-100 w-100">
       <Header />
       <Routes>
-        <Route exact path="/" element={<Login />} />
         <Route
-          path="/listado"
+          path="/"
           element={<Listado addOrRemoveFromFavs={addOrRemoveFromFavs} />}
         />
         <Route path="/detalle" element={<Detalle />} />

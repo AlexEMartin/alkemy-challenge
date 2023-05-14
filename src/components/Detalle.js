@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
 import axios from "axios";
 
 function Detalle() {
-  let token = sessionStorage.getItem("token");
 
   let query = new URLSearchParams(window.location.search);
   let movieID = query.get("movieID");
@@ -11,7 +9,7 @@ function Detalle() {
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-    const endPoint = `https://api.themoviedb.org/3/movie/${movieID}?api_key=b1857ba56197ae84cff79e8d15addf8b&language=en-US`;
+    const endPoint = `https://api.themoviedb.org/3/movie/${movieID}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
 
     axios
       .get(endPoint)
@@ -26,7 +24,6 @@ function Detalle() {
 
   return (
     <>
-      {!token && <Navigate to="/" />}
       {!movie && <p>Cargando...</p>}
       {movie && (
         <>

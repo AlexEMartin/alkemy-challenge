@@ -12,7 +12,7 @@ const aMapear = JSON.parse(miLocal);
       <div className="row">
         {aMapear.length === 0 && <div className="col-12 text-danger">No hay favoritos</div>}  
         {aMapear.map((movie) => (
-          <div key={movie.id} className="col-3 my-4">
+          <div key={movie.id} className="col-md-3 d-flex justify-content-center align-items-center my-4">
             <Card style={{ width: "18rem" }}>
               <Card.Img
                 variant="top"

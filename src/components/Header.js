@@ -5,10 +5,9 @@ function Header() {
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="/">AlkeFlix</Navbar.Brand>
+        <Navbar.Brand href="/">AleFlix</Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/listado">Listado</Nav.Link>
           <Nav.Link href="/favoritos">Favoritos</Nav.Link>
         </Nav>
         <Buscador />

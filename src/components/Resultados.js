@@ -12,7 +12,7 @@ function Resultados(props) {
   const [moviesResults, setMoviesResults] = useState([])
 
   useEffect(() => {
-    const endPoint = `https://api.themoviedb.org/3/search/movie?api_key=b1857ba56197ae84cff79e8d15addf8b&language=en-US&query=${keyword}`;
+    const endPoint = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${keyword}`;
 
     axios
       .get(endPoint)
@@ -35,7 +35,7 @@ function Resultados(props) {
       {moviesResults.length === 0 && <h4>No hay resultados.</h4>}
       <div className="row">
         {moviesResults.map((movie) => (
-          <div key={movie.id} className="col-4 my-4">
+          <div key={movie.id} className="col-md-3 d-flex justify-content-center align-items-center my-4">
             <Card style={{ width: "18rem" }}>
               <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
               <button

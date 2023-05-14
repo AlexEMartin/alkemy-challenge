@@ -18,7 +18,7 @@ function Buscador() {
 
   return (
     <form onSubmit={submitHandler}>
-      <label className="form-label mt-2">
+      <label className="form-label mt-2 w-50">
         <input
           className="form-control"
           placeholder="Buscar.."
@@ -26,7 +26,6 @@ function Buscador() {
           name="keyword"
         />
       </label>
-
       <button className="btn btn-success ms-4 mb-1" type="submit">
         Buscar
       </button>
